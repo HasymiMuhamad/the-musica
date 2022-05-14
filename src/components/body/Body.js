@@ -3,32 +3,25 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import { useQuery } from 'react-query'
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import { SERVICES } from "../../configs";
 import "./Body.scss";
 import Header from "../header/Header";
 import SongRow from "../songRow/SongRow";
 
 
 const Body = ({menu}) => {
-  console.log('menunih', menu)
-
   const { data : artistsData } = useQuery('artistsData', () =>
-    fetch('https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=d574ab6c5999447d63879ad3424595e4&format=json')
+    fetch(SERVICES.GET_TOP_ARTIST)
     .then(res =>
       res.json()
     )
   )
   const { data : songsData } = useQuery('songsData', () =>
-     fetch('https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=d574ab6c5999447d63879ad3424595e4&format=json')
+    fetch(SERVICES.GET_TOP_TRACK)
      .then(res =>
        res.json()
     )
   )
-
-
-  console.log('arti', artistsData)
-  console.log('arti2', songsData)
-
-
 
   return (
     <div className="body">
