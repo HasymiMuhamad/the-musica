@@ -1,30 +1,19 @@
 import React from "react";
 import "./SongRow.scss";
 
-const SongRow = (
-  // { track: { name, artists, album } }
-  ) => {
-    let name = 'Desta';
-    let artists = [
-      {
-        name : 'Pesona'
-      },
-      {
-        name : 'Grande'
-      }
-    ]
-    let album = {
-      images : '',
-      name : 'Bersatu'
-    }
+const SongRow = ({ item }) => {
+  let imageUrl = 'https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png';
   return (
     <div className="songRow">
-      <img className='songRow__album' src={album.images} alt="" />
+      <img className='songRow__album' src={imageUrl} alt="image" />
       <div className="songRow__info">
-        <h1>{name}</h1>
+        <h1>{item.name}</h1>
         <p>
-          {artists.map((artist) => artist.name).join(", ")} -{" "}
-          {album.name}
+          {`${item?.artist?.name
+            ? item?.artist?.name + ' ' + '-' + ' '
+            : ''}  
+            ${item.listeners} listeners`
+          }
         </p>
       </div>
     </div>

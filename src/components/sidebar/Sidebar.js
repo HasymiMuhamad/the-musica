@@ -4,33 +4,18 @@ import SidebarOption from "./../sidebarOption/SidebarOption";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
-// import {useStateValue} from '../../contextAPI/StateProvider'
 
-const Sidebar = () => {
-    // const [{ playlists }] = useStateValue()
-    
-   
+const Sidebar = ({handleChangeMenu}) => {
+
   return (
     <div className="sidebar">
-      {/* <img
-        className="sidebar__logo"
-        src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
-        alt=""
-      /> */}
           <strong className='sidebar__logo'>THE MUSICA</strong>
-
-          <SidebarOption Icon={HomeIcon} option='Home' />
-          <SidebarOption Icon={SearchIcon} option='Search' />
-          <SidebarOption Icon={LibraryMusicIcon} option='Your Library' />
+          <SidebarOption Icon={LibraryMusicIcon} option='Top Songs' name='songs' handleChangeMenu={handleChangeMenu}/>
+          <SidebarOption Icon={LibraryMusicIcon} option='Top Artist' name='artists' handleChangeMenu={handleChangeMenu}/>
+          <SidebarOption Icon={SearchIcon} option='Search' name='search' handleChangeMenu={handleChangeMenu}/>
           <br />
-          <strong className='sidebar__title'>PLAYLISTS</strong>
+          {/* <strong className='sidebar__title'>PLAYLISTS</strong> */}
           <hr />
-          
-          {/* {
-              playlists?.items?.map(playlist => (
-                  <SidebarOption option={playlist.name} key={playlist.id}/>
-              ))
-          } */}
     </div>
   );
 };
