@@ -24,7 +24,7 @@ const services = {
 
   // SEARCH
   SEARCH_ARTIST                 : (search) => `${SERVICE_SEARCH_API(method.searchArtists, keyword.artistSearch, search)}`,
-  SEARCH_TRACk                  : (search) => `${SERVICE_SEARCH_API(method.searchArtists, keyword.trackSearch, search)}`,
+  SEARCH_TRACK                  : (search) => `${SERVICE_SEARCH_API(method.searchTracks, keyword.trackSearch, search)}`,
 
 };
 
