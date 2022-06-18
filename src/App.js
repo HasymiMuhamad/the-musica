@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="app">
       <QueryClientProvider client={queryClient}>
+        <p>test coba</p>
         <Player />
       </QueryClientProvider>
     </div>
